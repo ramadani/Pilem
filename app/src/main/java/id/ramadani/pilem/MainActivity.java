@@ -12,6 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +35,23 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        ArrayList<String> movies = new ArrayList<String>();
+        movies.add("The Shawshank Redemption");
+        movies.add("Your Name.");
+        movies.add("The Godfather");
+        movies.add("The Shawshank Redemption");
+        movies.add("Your Name.");
+        movies.add("The Godfather");
+        movies.add("The Shawshank Redemption");
+        movies.add("Your Name.");
+        movies.add("The Godfather");
+
+        ArrayAdapter<String> moviesAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, movies);
+
+        ListView movieListView = (ListView) findViewById(R.id.lv_movies);
+        movieListView.setAdapter(moviesAdapter);
     }
 
     @Override
