@@ -6,11 +6,15 @@ Latihan membuat app android menggunakan API TMDb
 ### Roadmap
 * [x] Dapatkan API Key TMDb
 * [x] Explore & test REST API TMDb
-* [ ] Buat app base design (warna dan atribut lainnya dari TMDb)
+* [x] Buat app base design (warna dan atribut lainnya dari TMDb)
 * [ ] Implement Model View Presenter (MVP)
 * [ ] Upcoming movies
 * [ ] Top rated movies
 * [ ] Popular movies
 
 ### References
-https://developers.themoviedb.org
+* [Android Guidelines][adgl_url]
+* [TMDb Developer][tmdb_url]
+
+[tmdb_url]: https://developers.themoviedb.org
+[adgl_url]: https://github.com/ribot/android-guidelines
