@@ -17,6 +17,9 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import id.ramadani.pilem.movie.Movie;
+import id.ramadani.pilem.movie.MovieAdapter;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -36,22 +39,20 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ArrayList<String> movies = new ArrayList<String>();
-        movies.add("The Shawshank Redemption");
-        movies.add("Your Name.");
-        movies.add("The Godfather");
-        movies.add("The Shawshank Redemption");
-        movies.add("Your Name.");
-        movies.add("The Godfather");
-        movies.add("The Shawshank Redemption");
-        movies.add("Your Name.");
-        movies.add("The Godfather");
+        ArrayList<Movie> movies = new ArrayList<Movie>();
 
-        ArrayAdapter<String> moviesAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, movies);
+        for (int i = 0; i < 10; i++) {
+            Movie movie = new Movie("Your Name.",
+                    "Two strangers find themselves linked in a bizarre way. When a connection " +
+                            "forms, will distance be the only thing to keep them apart?",
+                    "2016-08-26", 8.4);
+            movies.add(movie);
+        }
+
+        MovieAdapter movieAdapter = new MovieAdapter(this, movies);
 
         ListView movieListView = (ListView) findViewById(R.id.lv_movies);
-        movieListView.setAdapter(moviesAdapter);
+        movieListView.setAdapter(movieAdapter);
     }
 
     @Override
