@@ -13,8 +13,12 @@ Latihan membuat app android menggunakan API TMDb
 * [ ] Popular movies
 
 ### References
-* [Android Guidelines][adgl_url]
 * [TMDb Developer][tmdb_url]
+* [Android Guidelines][adgl_url]
+* [Architecture of Android Apps][archi_ar_url]
+* [Beginning Android Resources][res_ar_url]
 
 [tmdb_url]: https://developers.themoviedb.org
 [adgl_url]: https://github.com/ribot/android-guidelines
+[archi_ar_url]: https://guides.codepath.com/android/Architecture-of-Android-Apps
+[res_ar_url]: https://guides.codepath.com/android/Beginning-Android-Resources
