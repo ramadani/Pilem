@@ -10,4 +10,7 @@
     <string name="nav_upcoming">Upcoming</string>
     <string name="nav_top_rated">Top Rated</string>
     <string name="nav_popular">Popular</string>
+
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text</string>
+    <string name="lorem_ipsum_long">Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
 </resources>

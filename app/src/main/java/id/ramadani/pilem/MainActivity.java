@@ -1,31 +1,37 @@
 package id.ramadani.pilem;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import id.ramadani.pilem.movie.Movie;
-import id.ramadani.pilem.movie.MovieAdapter;
+import id.ramadani.pilem.adapters.MoviesAdapter;
+import id.ramadani.pilem.dummies.Movies;
+import id.ramadani.pilem.models.Movie;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    ArrayList<Movie> movies;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        initialization();
+        populateDummyMovies();
+    }
+
+    private void initialization() {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -38,21 +44,17 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
 
-        ArrayList<Movie> movies = new ArrayList<Movie>();
+    private void populateDummyMovies() {
+        RecyclerView rvMovies = (RecyclerView) findViewById(R.id.rvMovies);
 
-        for (int i = 0; i < 10; i++) {
-            Movie movie = new Movie("Your Name.",
-                    "Two strangers find themselves linked in a bizarre way. When a connection " +
-                            "forms, will distance be the only thing to keep them apart?",
-                    "2016-08-26", 8.4);
-            movies.add(movie);
-        }
+        movies = Movies.createMovieList(20);
 
-        MovieAdapter movieAdapter = new MovieAdapter(this, movies);
+        MoviesAdapter moviesAdapter = new MoviesAdapter(this, movies);
 
-        ListView movieListView = (ListView) findViewById(R.id.lv_movies);
-        movieListView.setAdapter(movieAdapter);
+        rvMovies.setAdapter(moviesAdapter);
+        rvMovies.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
