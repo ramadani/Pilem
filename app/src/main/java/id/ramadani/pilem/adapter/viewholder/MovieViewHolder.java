@@ -1,4 +1,4 @@
-package id.ramadani.pilem.viewholder;
+package id.ramadani.pilem.adapter.viewholder;
 
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;

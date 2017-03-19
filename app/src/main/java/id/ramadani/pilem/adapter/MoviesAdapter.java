@@ -10,7 +10,7 @@ import java.util.List;
 
 import id.ramadani.pilem.R;
 import id.ramadani.pilem.model.Movie;
-import id.ramadani.pilem.viewholder.MovieViewHolder;
+import id.ramadani.pilem.adapter.viewholder.MovieViewHolder;
 
 /**
  * Created by dani on 3/18/17.
