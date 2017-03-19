@@ -1,4 +1,4 @@
-package id.ramadani.pilem;
+package id.ramadani.pilem.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
+import id.ramadani.pilem.R;
 import id.ramadani.pilem.adapter.MoviesAdapter;
 import id.ramadani.pilem.dummy.Movies;
 import id.ramadani.pilem.model.Movie;
