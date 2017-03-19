@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity
 
         initialization();
 
+        // init recycler view
+        rvMovies = (RecyclerView) findViewById(R.id.rv_movies);
+        rvMovies.setLayoutManager(new LinearLayoutManager(this));
+
         moviePresenter = new MoviePresenter(this);
         moviePresenter.list();
     }
@@ -109,9 +113,5 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        // init recycler view
-        rvMovies = (RecyclerView) findViewById(R.id.rvMovies);
-        rvMovies.setLayoutManager(new LinearLayoutManager(this));
     }
 }
