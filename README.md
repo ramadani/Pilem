@@ -12,6 +12,10 @@ Latihan membuat app android menggunakan API TMDb
 * [ ] Top rated movies
 * [ ] Popular movies
 
+### Dependencies
+* [Retrofit][retrofit_repo_url]
+* [google-gson][gson_repo_url]
+
 ### References
 * [TMDb Developer][tmdb_url]
 * [Android Guidelines][adgl_url]
@@ -22,3 +26,5 @@ Latihan membuat app android menggunakan API TMDb
 [adgl_url]: https://github.com/ribot/android-guidelines
 [archi_ar_url]: https://guides.codepath.com/android/Architecture-of-Android-Apps
 [res_ar_url]: https://guides.codepath.com/android/Beginning-Android-Resources
+[retrofit_repo_url]: https://github.com/square/retrofit
+[gson_repo_url]: https://github.com/google/gson
