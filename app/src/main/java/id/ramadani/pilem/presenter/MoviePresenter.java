@@ -2,8 +2,14 @@ package id.ramadani.pilem.presenter;
 
 import java.util.ArrayList;
 
+import id.ramadani.pilem.api.ApiBuilder;
+import id.ramadani.pilem.api.TmdbService;
+import id.ramadani.pilem.api.response.MovieCollectionResponse;
 import id.ramadani.pilem.model.Movie;
 import id.ramadani.pilem.view.MovieView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by dani on 3/19/17.
@@ -17,19 +23,26 @@ public class MoviePresenter {
     }
 
     public void list() {
-        ArrayList<Movie> movies = new ArrayList<Movie>();
+        final ArrayList<Movie> movies = new ArrayList<Movie>();
 
-        for (int i = 1; i <= 10; i++) {
-            String title = "Title of Movie " + i;
-            String overview = "Lorem Ipsum is simply dummy text of the printing and" +
-                    " typesetting industry";
-            Double voteAvg = 8.4;
+        TmdbService service = ApiBuilder.call();
 
-            Movie movie = new Movie(title, overview, voteAvg);
+        service.topRatedList(1).enqueue(new Callback<MovieCollectionResponse>() {
+            @Override
+            public void onResponse(Call<MovieCollectionResponse> call, Response<MovieCollectionResponse> response) {
+                MovieCollectionResponse collectionResponse = response.body();
 
-            movies.add(movie);
-        }
+                for (Movie movie: collectionResponse.getMovies()) {
+                    movies.add(movie);
+                }
 
-        this.view.movieList(movies);
+                view.movieList(movies);
+            }
+
+            @Override
+            public void onFailure(Call<MovieCollectionResponse> call, Throwable t) {
+
+            }
+        });
     }
 }

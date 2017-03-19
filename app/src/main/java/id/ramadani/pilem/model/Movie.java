@@ -5,25 +5,25 @@ package id.ramadani.pilem.model;
  */
 
 public class Movie {
-    private String mTitle;
-    private String mOverview;
-    private Double mVoteAverage;
+    private String title;
+    private String overview;
+    private Double voteAverage;
 
     public Movie(String title, String overview, Double voteAverage) {
-        this.mTitle = title;
-        this.mOverview = overview;
-        this.mVoteAverage = voteAverage;
+        this.title = title;
+        this.overview = overview;
+        this.voteAverage = voteAverage;
     }
 
     public String getTitle() {
-        return this.mTitle;
+        return title;
     }
 
     public String getOverview() {
-        return this.mOverview;
+        return overview;
     }
 
     public Double getVoteAverage() {
-        return this.mVoteAverage;
+        return voteAverage;
     }
 }
