@@ -12,50 +12,29 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import id.ramadani.pilem.R;
 import id.ramadani.pilem.adapter.MoviesAdapter;
-import id.ramadani.pilem.dummy.Movies;
 import id.ramadani.pilem.model.Movie;
+import id.ramadani.pilem.presenter.MoviePresenter;
+import id.ramadani.pilem.view.MovieView;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, MovieView {
 
-    ArrayList<Movie> movies;
+    MoviePresenter moviePresenter;
+    MoviesAdapter moviesAdapter;
+    RecyclerView rvMovies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         initialization();
-        populateDummyMovies();
-    }
 
-    private void initialization() {
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    private void populateDummyMovies() {
-        RecyclerView rvMovies = (RecyclerView) findViewById(R.id.rvMovies);
-
-        movies = Movies.createMovieList(20);
-
-        MoviesAdapter moviesAdapter = new MoviesAdapter(this, movies);
-
-        rvMovies.setAdapter(moviesAdapter);
-        rvMovies.setLayoutManager(new LinearLayoutManager(this));
+        moviePresenter = new MoviePresenter(this);
+        moviePresenter.list();
     }
 
     @Override
@@ -108,5 +87,31 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void movieList(List<Movie> movies) {
+        moviesAdapter = new MoviesAdapter(this, movies);
+
+        rvMovies.setAdapter(moviesAdapter);
+    }
+
+    private void initialization() {
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        // init recycler view
+        rvMovies = (RecyclerView) findViewById(R.id.rvMovies);
+        rvMovies.setLayoutManager(new LinearLayoutManager(this));
     }
 }
