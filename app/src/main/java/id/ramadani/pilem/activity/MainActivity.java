@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import id.ramadani.pilem.R;
@@ -24,18 +25,21 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MovieView {
 
     MoviePresenter moviePresenter;
-    MoviesAdapter moviesAdapter;
     RecyclerView rvMovies;
+    MoviesAdapter moviesAdapter;
+    ArrayList<Movie> movies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         initialization();
 
-        // init recycler view
+        movies = new ArrayList<Movie>();
+        moviesAdapter = new MoviesAdapter(this, movies);
+
         rvMovies = (RecyclerView) findViewById(R.id.rv_movies);
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
+        rvMovies.setAdapter(moviesAdapter);
 
         moviePresenter = new MoviePresenter(this);
         moviePresenter.list();
@@ -95,9 +99,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void movieList(List<Movie> movies) {
-        moviesAdapter = new MoviesAdapter(this, movies);
+        for (Movie movie: movies) {
+            this.movies.add(movie);
+        }
 
-        rvMovies.setAdapter(moviesAdapter);
+        moviesAdapter.notifyDataSetChanged();
     }
 
     private void initialization() {
