@@ -29,7 +29,8 @@ public class MoviePresenter {
 
         service.topRatedList(1).enqueue(new Callback<MovieCollectionResponse>() {
             @Override
-            public void onResponse(Call<MovieCollectionResponse> call, Response<MovieCollectionResponse> response) {
+            public void onResponse(Call<MovieCollectionResponse> call,
+                                   Response<MovieCollectionResponse> response) {
                 MovieCollectionResponse collectionResponse = response.body();
 
                 for (Movie movie: collectionResponse.getMovies()) {
