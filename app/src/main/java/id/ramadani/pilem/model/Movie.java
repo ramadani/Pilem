@@ -1,4 +1,4 @@
-package id.ramadani.pilem.models;
+package id.ramadani.pilem.model;
 
 /**
  * Created by dani on 3/18/17.

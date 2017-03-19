@@ -14,9 +14,9 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-import id.ramadani.pilem.adapters.MoviesAdapter;
-import id.ramadani.pilem.dummies.Movies;
-import id.ramadani.pilem.models.Movie;
+import id.ramadani.pilem.adapter.MoviesAdapter;
+import id.ramadani.pilem.dummy.Movies;
+import id.ramadani.pilem.model.Movie;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

@@ -1,4 +1,4 @@
-package id.ramadani.pilem.adapters;
+package id.ramadani.pilem.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import id.ramadani.pilem.R;
-import id.ramadani.pilem.models.Movie;
-import id.ramadani.pilem.viewholders.MovieViewHolder;
+import id.ramadani.pilem.model.Movie;
+import id.ramadani.pilem.viewholder.MovieViewHolder;
 
 /**
  * Created by dani on 3/18/17.

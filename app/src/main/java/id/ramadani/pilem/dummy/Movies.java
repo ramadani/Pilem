@@ -1,8 +1,8 @@
-package id.ramadani.pilem.dummies;
+package id.ramadani.pilem.dummy;
 
 import java.util.ArrayList;
 
-import id.ramadani.pilem.models.Movie;
+import id.ramadani.pilem.model.Movie;
 
 /**
  * Created by dani on 3/18/17.
