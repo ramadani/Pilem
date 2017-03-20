@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -19,6 +20,7 @@ import id.ramadani.pilem.R;
 import id.ramadani.pilem.adapter.MoviesAdapter;
 import id.ramadani.pilem.model.Movie;
 import id.ramadani.pilem.presenter.MoviePresenter;
+import id.ramadani.pilem.util.EndlessRecyclerViewScrollListener;
 import id.ramadani.pilem.view.MovieView;
 
 public class MainActivity extends AppCompatActivity
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity
     MoviesAdapter moviesAdapter;
     ArrayList<Movie> movies;
 
+    private EndlessRecyclerViewScrollListener scrollListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +42,24 @@ public class MainActivity extends AppCompatActivity
         moviesAdapter = new MoviesAdapter(this, movies);
 
         rvMovies = (RecyclerView) findViewById(R.id.rv_movies);
-        rvMovies.setLayoutManager(new LinearLayoutManager(this));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        rvMovies.setLayoutManager(layoutManager);
         rvMovies.setAdapter(moviesAdapter);
 
         moviePresenter = new MoviePresenter(this);
-        moviePresenter.list();
+
+        scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                moviePresenter.loadTopRated(page);
+            }
+        };
+
+        rvMovies.addOnScrollListener(scrollListener);
+
+        scrollListener.setCurrentPage(1);
+        moviePresenter.loadTopRated(1);
     }
 
     @Override
