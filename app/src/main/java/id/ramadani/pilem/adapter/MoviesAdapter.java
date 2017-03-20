@@ -41,6 +41,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
         viewHolder.title.setText(movie.getTitle());
         viewHolder.overview.setText(movie.getOverview());
+        viewHolder.voteAvg.setText(String.valueOf(movie.getVoteAverage()));
     }
 
     @Override
