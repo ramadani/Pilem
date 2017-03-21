@@ -4,6 +4,7 @@ Latihan membuat app android menggunakan API TMDb
 * Top Rated Movies
 * Popular Movies
 * Upcoming Movies
+* Now Playing
 
 > Done is better than perfect
 
