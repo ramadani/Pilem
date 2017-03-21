@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void movieList(List<Movie> movies) {
+    public void pushToMovieList(List<Movie> movies) {
         for (Movie movie: movies) {
             this.movies.add(movie);
         }

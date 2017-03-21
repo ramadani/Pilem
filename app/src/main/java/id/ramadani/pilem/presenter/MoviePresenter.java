@@ -37,7 +37,7 @@ public class MoviePresenter {
                     movies.add(movie);
                 }
 
-                view.movieList(movies);
+                view.pushToMovieList(movies);
             }
 
             @Override

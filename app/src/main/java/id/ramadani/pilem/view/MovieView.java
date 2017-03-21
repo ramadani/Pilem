@@ -9,5 +9,5 @@ import id.ramadani.pilem.model.Movie;
  */
 
 public interface MovieView {
-    void movieList(List<Movie> movies);
+    void pushToMovieList(List<Movie> movies);
 }
