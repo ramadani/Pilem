@@ -1,16 +1,20 @@
 # Pilem
 
 Latihan membuat app android menggunakan API TMDb
-> Because done is better than perfect
+* Top Rated Movies
+* Popular Movies
+* Upcoming Movies
+
+> Done is better than perfect
 
 ### Roadmap
 * [x] Dapatkan API Key TMDb
 * [x] Explore & test REST API TMDb
 * [x] Buat app base design (warna dan atribut lainnya dari TMDb)
-* [ ] Implement Model View Presenter (MVP)
-* [ ] Upcoming movies
-* [ ] Top rated movies
-* [ ] Popular movies
+* [x] Implement Model View Presenter (MVP)
+* [ ] List dengan material design
+* [ ] Lazy load image dengan Picasso
+* [ ] Implement fragment
 
 ### Dependencies
 * [Retrofit][retrofit_repo_url]
@@ -21,6 +25,8 @@ Latihan membuat app android menggunakan API TMDb
 * [Android Guidelines][adgl_url]
 * [Architecture of Android Apps][archi_ar_url]
 * [Beginning Android Resources][res_ar_url]
+* [Using the RecyclerView][rv_link]
+* [Endless Scrolling][el_sc_link]
 
 [tmdb_url]: https://developers.themoviedb.org
 [adgl_url]: https://github.com/ribot/android-guidelines
@@ -28,3 +34,5 @@ Latihan membuat app android menggunakan API TMDb
 [res_ar_url]: https://guides.codepath.com/android/Beginning-Android-Resources
 [retrofit_repo_url]: https://github.com/square/retrofit
 [gson_repo_url]: https://github.com/google/gson
+[rv_link]: https://guides.codepath.com/android/Using-the-RecyclerView
+[el_sc_link]: https://guides.codepath.com/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView

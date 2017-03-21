@@ -2,7 +2,6 @@ package id.ramadani.pilem.util;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 /**
  * Created by dani on 3/20/17.
