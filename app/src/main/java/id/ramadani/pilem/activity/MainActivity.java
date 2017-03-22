@@ -2,6 +2,7 @@ package id.ramadani.pilem.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -136,5 +137,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        TabLayout tabs = (TabLayout) findViewById(R.id.tab_movie);
+        tabs.addTab(tabs.newTab().setText("Now Playing"));
+        tabs.addTab(tabs.newTab().setText("Upcoming"));
+        tabs.addTab(tabs.newTab().setText("Popular"));
     }
 }
