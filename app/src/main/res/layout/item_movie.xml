@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp"
-    android:orientation="vertical">
+    android:padding="@dimen/item_pading">
+
+    <ImageView
+        android:id="@+id/iv_movie_poster"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/yourname"/>
 
     <TextView
         android:id="@+id/tv_movie_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:layout_toRightOf="@+id/iv_movie_poster"
+        android:paddingLeft="@dimen/item_pading"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:text="@string/lorem_ipsum"/>
 
@@ -18,14 +26,19 @@
         android:id="@+id/tv_movie_vote_avg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:layout_below="@+id/tv_movie_title"
+        android:layout_toRightOf="@+id/iv_movie_poster"
+        android:paddingLeft="@dimen/item_pading"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        android:text="8.4"/>
+        android:text="@string/lorem_ipsum_num"/>
 
     <TextView
         android:id="@+id/tv_movie_overview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_movie_vote_avg"
+        android:layout_toRightOf="@+id/iv_movie_poster"
+        android:paddingLeft="@dimen/item_pading"
         android:text="@string/lorem_ipsum_long"/>
-</LinearLayout>
+</RelativeLayout>
