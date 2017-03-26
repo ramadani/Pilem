@@ -22,6 +22,8 @@ Latihan membuat app android menggunakan API TMDb
 * [google-gson][gson_repo_url]
 * [picasso][picasso_url]
 
+***
+
 <img src="image.png" width="320">
 
 ### References
@@ -32,6 +34,7 @@ Latihan membuat app android menggunakan API TMDb
 * [Using the RecyclerView][rv_link]
 * [Endless Scrolling][el_sc_link]
 * [A View Divided][view_divided_link]
+* [Displaying Images with the Picasso Library][picasso_ref_url]
 
 [tmdb_url]: https://developers.themoviedb.org
 [adgl_url]: https://github.com/ribot/android-guidelines
@@ -43,3 +46,4 @@ Latihan membuat app android menggunakan API TMDb
 [rv_link]: https://guides.codepath.com/android/Using-the-RecyclerView
 [el_sc_link]: https://guides.codepath.com/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView
 [view_divided_link]: https://www.bignerdranch.com/blog/a-view-divided-adding-dividers-to-your-recyclerview-with-itemdecoration/
+[picasso_ref_url]: https://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library
