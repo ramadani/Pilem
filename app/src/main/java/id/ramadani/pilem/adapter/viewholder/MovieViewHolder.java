@@ -2,6 +2,7 @@ package id.ramadani.pilem.adapter.viewholder;
 
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import id.ramadani.pilem.R;
@@ -14,6 +15,7 @@ public class MovieViewHolder extends ViewHolder {
     public TextView title;
     public TextView overview;
     public TextView voteAvg;
+    public ImageView poster;
 
     public MovieViewHolder(View itemView) {
         super(itemView);
@@ -21,5 +23,6 @@ public class MovieViewHolder extends ViewHolder {
         title = (TextView) itemView.findViewById(R.id.tv_movie_title);
         overview = (TextView) itemView.findViewById(R.id.tv_movie_overview);
         voteAvg = (TextView) itemView.findViewById(R.id.tv_movie_vote_avg);
+        poster = (ImageView) itemView.findViewById(R.id.iv_movie_poster);
     }
 }

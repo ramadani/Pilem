@@ -10,6 +10,9 @@ import retrofit2.http.Query;
  */
 
 public interface TmdbService {
+    @GET("movie/now_playing")
+    Call<MovieCollectionResponse> nowPlaying(@Query("page") int page);
+
     @GET("movie/top_rated")
     Call<MovieCollectionResponse> topRatedList(@Query("page") int page);
 }

@@ -20,6 +20,7 @@ Latihan membuat app android menggunakan API TMDb
 ### Dependencies
 * [Retrofit][retrofit_repo_url]
 * [google-gson][gson_repo_url]
+* [picasso][picasso_url]
 
 ### References
 * [TMDb Developer][tmdb_url]
@@ -36,6 +37,7 @@ Latihan membuat app android menggunakan API TMDb
 [res_ar_url]: https://guides.codepath.com/android/Beginning-Android-Resources
 [retrofit_repo_url]: https://github.com/square/retrofit
 [gson_repo_url]: https://github.com/google/gson
+[picasso_url]: https://github.com/square/picasso
 [rv_link]: https://guides.codepath.com/android/Using-the-RecyclerView
 [el_sc_link]: https://guides.codepath.com/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView
 [view_divided_link]: https://www.bignerdranch.com/blog/a-view-divided-adding-dividers-to-your-recyclerview-with-itemdecoration/
