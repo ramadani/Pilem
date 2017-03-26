@@ -44,6 +44,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MovieViewHolder> {
         viewHolder.title.setText(movie.getTitle());
         viewHolder.overview.setText(movie.getOverview());
         viewHolder.voteAvg.setText(String.valueOf(movie.getVoteAverage()));
+        viewHolder.poster.setContentDescription(movie.getTitle());
 
         Picasso.with(getContext()).load(movie.getPosterUrl()).into(viewHolder.poster);
     }
