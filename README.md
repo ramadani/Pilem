@@ -22,7 +22,7 @@ Latihan membuat app android menggunakan API TMDb
 * [google-gson][gson_repo_url]
 * [picasso][picasso_url]
 
-![pilem][img_path]
+![pilem](image.png =250x)
 
 ### References
 * [TMDb Developer][tmdb_url]
@@ -33,7 +33,6 @@ Latihan membuat app android menggunakan API TMDb
 * [Endless Scrolling][el_sc_link]
 * [A View Divided][view_divided_link]
 
-[img_path]: image.png
 [tmdb_url]: https://developers.themoviedb.org
 [adgl_url]: https://github.com/ribot/android-guidelines
 [archi_ar_url]: https://guides.codepath.com/android/Architecture-of-Android-Apps
