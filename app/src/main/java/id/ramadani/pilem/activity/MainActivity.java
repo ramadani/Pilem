@@ -1,8 +1,10 @@
 package id.ramadani.pilem.activity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -21,6 +23,7 @@ import id.ramadani.pilem.R;
 import id.ramadani.pilem.adapter.MoviesAdapter;
 import id.ramadani.pilem.model.Movie;
 import id.ramadani.pilem.presenter.MoviePresenter;
+import id.ramadani.pilem.util.DividerItemDecoration;
 import id.ramadani.pilem.util.EndlessRecyclerViewScrollListener;
 import id.ramadani.pilem.view.MovieView;
 
@@ -42,7 +45,10 @@ public class MainActivity extends AppCompatActivity
         movies = new ArrayList<Movie>();
         moviesAdapter = new MoviesAdapter(this, movies);
 
+        Drawable dividerDrawable = ContextCompat.getDrawable(this, R.drawable.divider);
+
         rvMovies = (RecyclerView) findViewById(R.id.rv_movies);
+        rvMovies.addItemDecoration(new DividerItemDecoration(dividerDrawable));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvMovies.setLayoutManager(layoutManager);
