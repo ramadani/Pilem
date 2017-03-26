@@ -8,6 +8,8 @@ Latihan membuat app android menggunakan API TMDb
 
 > Done is better than perfect
 
+<img src="image.png" width="320">
+
 ### Roadmap
 * [x] Explore & test REST API TMDb
 * [x] Buat app base design (warna dan atribut lainnya dari TMDb)
@@ -21,10 +23,6 @@ Latihan membuat app android menggunakan API TMDb
 * [Retrofit][retrofit_repo_url]
 * [google-gson][gson_repo_url]
 * [picasso][picasso_url]
-
-***
-
-<img src="image.png" width="320">
 
 ### References
 * [TMDb Developer][tmdb_url]
