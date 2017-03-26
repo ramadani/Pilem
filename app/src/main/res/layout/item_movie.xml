@@ -2,23 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
     android:orientation="horizontal"
     android:padding="@dimen/item_pading">
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/iv_movie_poster"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <ImageView
-            android:id="@+id/iv_movie_poster"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@mipmap/yourname"
-            android:contentDescription="@string/app_name"/>
-    </RelativeLayout>
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/yourname"
+        android:contentDescription="@string/app_name"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -27,21 +21,28 @@
         android:paddingLeft="@dimen/item_pading"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_movie_title"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:text="@string/lorem_ipsum"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_movie_vote_avg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold"
-            android:text="@string/lorem_ipsum_num"/>
+            <TextView
+                android:id="@+id/tv_movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:text="@string/lorem_ipsum"/>
+
+            <TextView
+                android:id="@+id/tv_movie_vote_avg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:text="@string/lorem_ipsum_num"/>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_movie_overview"
