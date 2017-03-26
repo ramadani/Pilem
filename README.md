@@ -12,7 +12,7 @@ Latihan membuat app android menggunakan API TMDb
 * [x] Explore & test REST API TMDb
 * [x] Buat app base design (warna dan atribut lainnya dari TMDb)
 * [x] Implement Model View Presenter (MVP)
-* [ ] Lazy load image
+* [x] Lazy load image
 * [x] Endless Scrolling
 * [ ] Swipe Refresh
 * [ ] Tab Layout & Fragment
@@ -21,6 +21,8 @@ Latihan membuat app android menggunakan API TMDb
 * [Retrofit][retrofit_repo_url]
 * [google-gson][gson_repo_url]
 * [picasso][picasso_url]
+
+![pilem][img_path]
 
 ### References
 * [TMDb Developer][tmdb_url]
@@ -31,6 +33,7 @@ Latihan membuat app android menggunakan API TMDb
 * [Endless Scrolling][el_sc_link]
 * [A View Divided][view_divided_link]
 
+[img_path]: image.png
 [tmdb_url]: https://developers.themoviedb.org
 [adgl_url]: https://github.com/ribot/android-guidelines
 [archi_ar_url]: https://guides.codepath.com/android/Architecture-of-Android-Apps
