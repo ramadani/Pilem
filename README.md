@@ -22,7 +22,7 @@ Latihan membuat app android menggunakan API TMDb
 * [google-gson][gson_repo_url]
 * [picasso][picasso_url]
 
-![pilem](image.png =250x)
+<img src="image.png" width="320">
 
 ### References
 * [TMDb Developer][tmdb_url]
