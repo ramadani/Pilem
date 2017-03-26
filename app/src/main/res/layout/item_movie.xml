@@ -6,9 +6,8 @@
 
     <ImageView
         android:id="@+id/iv_movie_poster"
-        android:layout_width="0dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:adjustViewBounds="true"
         android:src="@mipmap/yourname"
         android:contentDescription="@string/app_name"/>
