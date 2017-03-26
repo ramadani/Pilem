@@ -9,13 +9,13 @@ Latihan membuat app android menggunakan API TMDb
 > Done is better than perfect
 
 ### Roadmap
-* [x] Dapatkan API Key TMDb
 * [x] Explore & test REST API TMDb
 * [x] Buat app base design (warna dan atribut lainnya dari TMDb)
 * [x] Implement Model View Presenter (MVP)
-* [ ] List dengan material design
-* [ ] Lazy load image dengan Picasso
-* [ ] Implement fragment
+* [ ] Lazy load image
+* [x] Endless Scrolling
+* [ ] Swipe Refresh
+* [ ] Tab Layout & Fragment
 
 ### Dependencies
 * [Retrofit][retrofit_repo_url]
@@ -28,6 +28,7 @@ Latihan membuat app android menggunakan API TMDb
 * [Beginning Android Resources][res_ar_url]
 * [Using the RecyclerView][rv_link]
 * [Endless Scrolling][el_sc_link]
+* [A View Divided][view_divided_link]
 
 [tmdb_url]: https://developers.themoviedb.org
 [adgl_url]: https://github.com/ribot/android-guidelines
@@ -37,3 +38,4 @@ Latihan membuat app android menggunakan API TMDb
 [gson_repo_url]: https://github.com/google/gson
 [rv_link]: https://guides.codepath.com/android/Using-the-RecyclerView
 [el_sc_link]: https://guides.codepath.com/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView
+[view_divided_link]: https://www.bignerdranch.com/blog/a-view-divided-adding-dividers-to-your-recyclerview-with-itemdecoration/
