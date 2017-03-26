@@ -1,10 +1,9 @@
 package id.ramadani.pilem.activity;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,7 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -25,6 +24,7 @@ import id.ramadani.pilem.model.Movie;
 import id.ramadani.pilem.presenter.MoviePresenter;
 import id.ramadani.pilem.util.DividerItemDecoration;
 import id.ramadani.pilem.util.EndlessRecyclerViewScrollListener;
+import id.ramadani.pilem.util.MarginItemDecoration;
 import id.ramadani.pilem.view.MovieView;
 
 public class MainActivity extends AppCompatActivity
@@ -45,10 +45,11 @@ public class MainActivity extends AppCompatActivity
         movies = new ArrayList<Movie>();
         moviesAdapter = new MoviesAdapter(this, movies);
 
-        Drawable dividerDrawable = ContextCompat.getDrawable(this, R.drawable.divider);
-
         rvMovies = (RecyclerView) findViewById(R.id.rv_movies);
-        rvMovies.addItemDecoration(new DividerItemDecoration(dividerDrawable));
+
+        // set margin peritem
+        int movieItemMargin = getResources().getDimensionPixelSize(R.dimen.item_pading);
+        rvMovies.addItemDecoration(new MarginItemDecoration(movieItemMargin));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvMovies.setLayoutManager(layoutManager);
