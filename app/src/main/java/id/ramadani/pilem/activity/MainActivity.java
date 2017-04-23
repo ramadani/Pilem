@@ -144,10 +144,5 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        TabLayout tabs = (TabLayout) findViewById(R.id.tab_movie);
-        tabs.addTab(tabs.newTab().setText("Now Playing"));
-        tabs.addTab(tabs.newTab().setText("Upcoming"));
-        tabs.addTab(tabs.newTab().setText("Popular"));
     }
 }
