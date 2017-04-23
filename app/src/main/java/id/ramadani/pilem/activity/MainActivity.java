@@ -72,15 +72,26 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        int titleId;
 
         switch (id) {
+            case R.id.nav_now_playing:
+                titleId = R.string.nav_now_playing;
+                break;
             case R.id.nav_upcoming:
+                titleId = R.string.nav_upcoming;
                 break;
             case R.id.nav_top_rated:
+                titleId = R.string.nav_top_rated;
                 break;
             case R.id.nav_popular:
+                titleId = R.string.nav_popular;
                 break;
+            default:
+                titleId = R.string.app_name;
         }
+
+        setTitle(titleId);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
