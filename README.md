@@ -1,10 +1,10 @@
 # Pilem
 
 Latihan membuat app android menggunakan API TMDb
-* Top Rated Movies
-* Popular Movies
-* Upcoming Movies
 * Now Playing
+* Upcoming Movies
+* Popular Movies
+* Top Rated Movies
 
 > Done is better than perfect
 
@@ -16,8 +16,9 @@ Latihan membuat app android menggunakan API TMDb
 * [x] Implement Model View Presenter (MVP)
 * [x] Lazy load image
 * [x] Endless Scrolling
+* [ ] Fragment
 * [ ] Swipe Refresh
-* [ ] Tab Layout & Fragment
+* [ ] Detail Movie
 
 ### Dependencies
 * [Retrofit][retrofit_repo_url]
@@ -33,6 +34,7 @@ Latihan membuat app android menggunakan API TMDb
 * [Endless Scrolling][el_sc_link]
 * [A View Divided][view_divided_link]
 * [Displaying Images with the Picasso Library][picasso_ref_url]
+* [Creating and Using Fragments][using_fragment_url]
 
 [tmdb_url]: https://developers.themoviedb.org
 [adgl_url]: https://github.com/ribot/android-guidelines
@@ -45,3 +47,4 @@ Latihan membuat app android menggunakan API TMDb
 [el_sc_link]: https://guides.codepath.com/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView
 [view_divided_link]: https://www.bignerdranch.com/blog/a-view-divided-adding-dividers-to-your-recyclerview-with-itemdecoration/
 [picasso_ref_url]: https://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library
+[using_fragment_url]: https://guides.codepath.com/android/Creating-and-Using-Fragments
