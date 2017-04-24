@@ -22,12 +22,12 @@ public class MoviePresenter {
         this.view = view;
     }
 
-    public void loadTopRated(int page) {
-        final ArrayList<Movie> movies = new ArrayList<Movie>();
+    public void load(int page) {
+        final ArrayList<Movie> movies = new ArrayList<>();
 
         TmdbService service = ApiBuilder.call();
 
-        service.topRatedList(page).enqueue(new Callback<MovieCollectionResponse>() {
+        service.nowPlaying(page).enqueue(new Callback<MovieCollectionResponse>() {
             @Override
             public void onResponse(Call<MovieCollectionResponse> call,
                                    Response<MovieCollectionResponse> response) {
