@@ -7,9 +7,10 @@
 
     <string name="action_settings">Settings</string>
 
+    <string name="nav_now_playing">Now Playing</string>
     <string name="nav_upcoming">Upcoming</string>
-    <string name="nav_top_rated">Top Rated</string>
     <string name="nav_popular">Popular</string>
+    <string name="nav_top_rated">Top Rated</string>
 
     <string name="lorem_ipsum">Lorem Ipsum is simply dummy text</string>
     <string name="lorem_ipsum_num">8.4</string>

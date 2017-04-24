@@ -10,4 +10,8 @@ import id.ramadani.pilem.model.Movie;
 
 public interface MovieView {
     void pushToMovieList(List<Movie> movies);
+
+    void showProgress();
+
+    void hideProgress();
 }
