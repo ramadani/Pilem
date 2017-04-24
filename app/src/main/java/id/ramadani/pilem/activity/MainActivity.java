@@ -3,6 +3,8 @@ package id.ramadani.pilem.activity;
 import android.os.Bundle;
 
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import id.ramadani.pilem.R;
+import id.ramadani.pilem.fragment.NowPlayingFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
             case R.id.nav_now_playing:
                 titleId = R.string.nav_now_playing;
+                setMovieFragment(new NowPlayingFragment());
                 break;
             case R.id.nav_upcoming:
                 titleId = R.string.nav_upcoming;
@@ -96,5 +100,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void setMovieFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame_movies, fragment);
+        fragmentTransaction.commit();
     }
 }
