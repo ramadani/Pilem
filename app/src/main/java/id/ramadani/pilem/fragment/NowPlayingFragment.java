@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,18 +26,19 @@ import id.ramadani.pilem.view.MovieView;
 
 public class NowPlayingFragment extends Fragment implements MovieView {
 
-    RecyclerView rvMovies;
-    MoviesAdapter moviesAdapter;
-    List<Movie> movies;
-    MoviePresenter moviePresenter;
+    private ProgressBar mProgressBar;
+    private RecyclerView mRvMovies;
+    private MoviesAdapter mMoviesAdapter;
+    private List<Movie> mMovieList;
+    private MoviePresenter mMoviePresenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        movies = new ArrayList<>();
-        moviesAdapter = new MoviesAdapter(getActivity(), movies);
-        moviePresenter = new MoviePresenter(this);
+        mMovieList = new ArrayList<>();
+        mMoviesAdapter = new MoviesAdapter(getActivity(), mMovieList);
+        mMoviePresenter = new MoviePresenter(this);
     }
 
     @Nullable
@@ -48,26 +50,37 @@ public class NowPlayingFragment extends Fragment implements MovieView {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        rvMovies = (RecyclerView) view.findViewById(R.id.rv_movies);
+        mProgressBar = (ProgressBar) view.findViewById(R.id.progress_movies);
+        mRvMovies = (RecyclerView) view.findViewById(R.id.rv_movies);
 
         int movieItemMargin = view.getResources().getDimensionPixelSize(R.dimen.item_pading);
-        rvMovies.addItemDecoration(new MarginItemDecoration(movieItemMargin));
+        mRvMovies.addItemDecoration(new MarginItemDecoration(movieItemMargin));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        rvMovies.setLayoutManager(layoutManager);
-        rvMovies.setAdapter(moviesAdapter);
+        mRvMovies.setLayoutManager(layoutManager);
+        mRvMovies.setAdapter(mMoviesAdapter);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        moviePresenter.load(1);
+        mMoviePresenter.load(1);
     }
 
     @Override
     public void pushToMovieList(List<Movie> movies) {
-        this.movies.addAll(movies);
-        moviesAdapter.notifyDataSetChanged();
+        mMovieList.addAll(movies);
+        mMoviesAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showProgress() {
+        mProgressBar.setVisibility(ProgressBar.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        mProgressBar.setVisibility(ProgressBar.GONE);
     }
 }

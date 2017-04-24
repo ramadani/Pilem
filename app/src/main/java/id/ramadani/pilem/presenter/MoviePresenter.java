@@ -17,17 +17,19 @@ import retrofit2.Response;
 
 public class MoviePresenter {
     private final MovieView view;
+    private TmdbService mService;
 
     public MoviePresenter(MovieView view) {
         this.view = view;
+
+        mService = ApiBuilder.call();
     }
 
     public void load(int page) {
         final ArrayList<Movie> movies = new ArrayList<>();
 
-        TmdbService service = ApiBuilder.call();
-
-        service.nowPlaying(page).enqueue(new Callback<MovieCollectionResponse>() {
+        view.showProgress();
+        mService.nowPlaying(page).enqueue(new Callback<MovieCollectionResponse>() {
             @Override
             public void onResponse(Call<MovieCollectionResponse> call,
                                    Response<MovieCollectionResponse> response) {
@@ -38,11 +40,12 @@ public class MoviePresenter {
                 }
 
                 view.pushToMovieList(movies);
+                view.hideProgress();
             }
 
             @Override
             public void onFailure(Call<MovieCollectionResponse> call, Throwable t) {
-
+                view.hideProgress();
             }
         });
     }

@@ -20,6 +20,8 @@ import id.ramadani.pilem.fragment.NowPlayingFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static final String MOVIES_FRAGMENT_TAG = "MOVIES_FRAGMENT_TAG";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +106,7 @@ public class MainActivity extends AppCompatActivity
 
     private void setMovieFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame_movies, fragment);
+        fragmentTransaction.replace(R.id.frame_movies, fragment, MOVIES_FRAGMENT_TAG);
         fragmentTransaction.commit();
     }
 }
