@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import id.ramadani.pilem.R;
 import id.ramadani.pilem.fragment.MovieListFragment;
 import id.ramadani.pilem.presenter.NowPlayingMoviePresenter;
+import id.ramadani.pilem.presenter.TopRatedMoviePresenter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -87,17 +88,23 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void onMovieNavigationItemSelected(int menuId) {
+        Fragment fragment;
+
         switch (menuId) {
             case R.id.nav_now_playing:
                 setTitle(R.string.nav_now_playing);
-                Fragment fragment = MovieListFragment.newInstance(new NowPlayingMoviePresenter());
+                fragment = MovieListFragment.newInstance(new NowPlayingMoviePresenter());
                 setMovieFragment(fragment);
+
                 break;
             case R.id.nav_upcoming:
                 setTitle(R.string.nav_upcoming);
                 break;
             case R.id.nav_top_rated:
                 setTitle(R.string.nav_top_rated);
+                fragment = MovieListFragment.newInstance(new TopRatedMoviePresenter());
+                setMovieFragment(fragment);
+
                 break;
             case R.id.nav_popular:
                 setTitle(R.string.nav_popular);
