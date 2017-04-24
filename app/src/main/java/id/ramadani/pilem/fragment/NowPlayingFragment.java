@@ -17,6 +17,7 @@ import id.ramadani.pilem.R;
 import id.ramadani.pilem.adapter.MoviesAdapter;
 import id.ramadani.pilem.model.Movie;
 import id.ramadani.pilem.presenter.MoviePresenter;
+import id.ramadani.pilem.util.EndlessRecyclerViewScrollListener;
 import id.ramadani.pilem.util.MarginItemDecoration;
 import id.ramadani.pilem.view.MovieView;
 
@@ -31,6 +32,7 @@ public class NowPlayingFragment extends Fragment implements MovieView {
     private MoviesAdapter mMoviesAdapter;
     private List<Movie> mMovieList;
     private MoviePresenter mMoviePresenter;
+    private EndlessRecyclerViewScrollListener mScrollListener;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,12 +61,22 @@ public class NowPlayingFragment extends Fragment implements MovieView {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRvMovies.setLayoutManager(layoutManager);
         mRvMovies.setAdapter(mMoviesAdapter);
+
+        mScrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                mMoviePresenter.load(page);
+            }
+        };
+
+        mRvMovies.addOnScrollListener(mScrollListener);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        mScrollListener.setCurrentPage(1);
         mMoviePresenter.load(1);
     }
 
