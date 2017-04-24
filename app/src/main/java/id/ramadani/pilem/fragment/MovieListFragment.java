@@ -16,7 +16,7 @@ import java.util.List;
 import id.ramadani.pilem.R;
 import id.ramadani.pilem.adapter.MoviesAdapter;
 import id.ramadani.pilem.model.Movie;
-import id.ramadani.pilem.presenter.MoviePresenter;
+import id.ramadani.pilem.presenter.MoviePresenterContract;
 import id.ramadani.pilem.util.EndlessRecyclerViewScrollListener;
 import id.ramadani.pilem.util.MarginItemDecoration;
 import id.ramadani.pilem.view.MovieView;
@@ -25,14 +25,24 @@ import id.ramadani.pilem.view.MovieView;
  * Created by dani on 4/24/17.
  */
 
-public class NowPlayingFragment extends Fragment implements MovieView {
+public class MovieListFragment extends Fragment implements MovieView {
 
+    private static final String MOVIE_PRESENTER_KEY = "MOVIE_PRESENTER_KEY";
     private ProgressBar mProgressBar;
     private RecyclerView mRvMovies;
     private MoviesAdapter mMoviesAdapter;
     private List<Movie> mMovieList;
-    private MoviePresenter mMoviePresenter;
+    private MoviePresenterContract mMoviePresenter;
     private EndlessRecyclerViewScrollListener mScrollListener;
+
+    public static MovieListFragment newInstance(MoviePresenterContract moviePresenterContract) {
+        MovieListFragment fragment = new MovieListFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(MOVIE_PRESENTER_KEY, moviePresenterContract);
+        fragment.setArguments(args);
+
+        return fragment;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,14 +50,16 @@ public class NowPlayingFragment extends Fragment implements MovieView {
 
         mMovieList = new ArrayList<>();
         mMoviesAdapter = new MoviesAdapter(getActivity(), mMovieList);
-        mMoviePresenter = new MoviePresenter(this);
+        mMoviePresenter =
+                (MoviePresenterContract) getArguments().getSerializable(MOVIE_PRESENTER_KEY);
+        mMoviePresenter.setView(this);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_now_playing, container, false);
+        return inflater.inflate(R.layout.fragment_movies, container, false);
     }
 
     @Override

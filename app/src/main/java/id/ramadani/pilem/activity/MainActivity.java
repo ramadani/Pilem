@@ -15,7 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import id.ramadani.pilem.R;
-import id.ramadani.pilem.fragment.NowPlayingFragment;
+import id.ramadani.pilem.fragment.MovieListFragment;
+import id.ramadani.pilem.presenter.NowPlayingMoviePresenter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -77,31 +78,31 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        int titleId;
 
-        switch (id) {
-            case R.id.nav_now_playing:
-                titleId = R.string.nav_now_playing;
-                setMovieFragment(new NowPlayingFragment());
-                break;
-            case R.id.nav_upcoming:
-                titleId = R.string.nav_upcoming;
-                break;
-            case R.id.nav_top_rated:
-                titleId = R.string.nav_top_rated;
-                break;
-            case R.id.nav_popular:
-                titleId = R.string.nav_popular;
-                break;
-            default:
-                titleId = R.string.app_name;
-        }
-
-        setTitle(titleId);
+        onMovieNavigationItemSelected(id);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void onMovieNavigationItemSelected(int menuId) {
+        switch (menuId) {
+            case R.id.nav_now_playing:
+                setTitle(R.string.nav_now_playing);
+                Fragment fragment = MovieListFragment.newInstance(new NowPlayingMoviePresenter());
+                setMovieFragment(fragment);
+                break;
+            case R.id.nav_upcoming:
+                setTitle(R.string.nav_upcoming);
+                break;
+            case R.id.nav_top_rated:
+                setTitle(R.string.nav_top_rated);
+                break;
+            case R.id.nav_popular:
+                setTitle(R.string.nav_popular);
+                break;
+        }
     }
 
     private void setMovieFragment(Fragment fragment) {
