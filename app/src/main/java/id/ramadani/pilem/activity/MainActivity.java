@@ -17,7 +17,9 @@ import android.view.MenuItem;
 import id.ramadani.pilem.R;
 import id.ramadani.pilem.fragment.MovieListFragment;
 import id.ramadani.pilem.presenter.NowPlayingMoviePresenter;
+import id.ramadani.pilem.presenter.PopularMoviePresenter;
 import id.ramadani.pilem.presenter.TopRatedMoviePresenter;
+import id.ramadani.pilem.presenter.UpcomingMoviePresenter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -99,6 +101,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_upcoming:
                 setTitle(R.string.nav_upcoming);
+                fragment = MovieListFragment.newInstance(new UpcomingMoviePresenter());
+                setMovieFragment(fragment);
+
                 break;
             case R.id.nav_top_rated:
                 setTitle(R.string.nav_top_rated);
@@ -108,6 +113,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_popular:
                 setTitle(R.string.nav_popular);
+                fragment = MovieListFragment.newInstance(new PopularMoviePresenter());
+                setMovieFragment(fragment);
+
                 break;
         }
     }
