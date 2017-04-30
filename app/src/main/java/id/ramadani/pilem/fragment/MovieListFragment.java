@@ -5,10 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ import id.ramadani.pilem.view.MovieView;
  */
 
 public class MovieListFragment extends Fragment implements MovieView {
-
+    private static final String TAG = MovieListFragment.class.getSimpleName();
     private static final String MOVIE_PRESENTER_KEY = "MOVIE_PRESENTER_KEY";
     private ProgressBar mProgressBar;
     private RecyclerView mRvMovies;
@@ -49,7 +51,13 @@ public class MovieListFragment extends Fragment implements MovieView {
         super.onCreate(savedInstanceState);
 
         mMovieList = new ArrayList<>();
-        mMoviesAdapter = new MoviesAdapter(getActivity(), mMovieList);
+        mMoviesAdapter = new MoviesAdapter(mMovieList, new MoviesAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Movie movie) {
+                Toast.makeText(getContext(), movie.getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
         mMoviePresenter =
                 (MoviePresenterContract) getArguments().getSerializable(MOVIE_PRESENTER_KEY);
         mMoviePresenter.setView(this);
