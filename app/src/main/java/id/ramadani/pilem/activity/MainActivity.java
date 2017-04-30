@@ -13,16 +13,19 @@ import android.support.v7.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import id.ramadani.pilem.R;
 import id.ramadani.pilem.fragment.MovieListFragment;
+import id.ramadani.pilem.model.Movie;
 import id.ramadani.pilem.presenter.NowPlayingMoviePresenter;
 import id.ramadani.pilem.presenter.PopularMoviePresenter;
 import id.ramadani.pilem.presenter.TopRatedMoviePresenter;
 import id.ramadani.pilem.presenter.UpcomingMoviePresenter;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener,
+        MovieListFragment.OnItemSelectedListener {
 
     public static final String MOVIES_FRAGMENT_TAG = "MOVIES_FRAGMENT_TAG";
 
@@ -91,6 +94,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onMovieItemSelected(Movie movie) {
+        Toast.makeText(this, movie.getTitle(), Toast.LENGTH_SHORT).show();
     }
 
     private void onMovieNavigationItemSelected(int menuId) {
