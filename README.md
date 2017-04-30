@@ -16,9 +16,9 @@ Latihan membuat app android menggunakan API TMDb
 * [x] Implement Model View Presenter (MVP)
 * [x] Lazy load image
 * [x] Endless Scrolling
-* [ ] Fragment
-* [ ] Swipe Refresh
+* [x] Fragment List
 * [ ] Detail Movie
+* [ ] Swipe Refresh
 
 ### Dependencies
 * [Retrofit][retrofit_repo_url]
@@ -35,6 +35,7 @@ Latihan membuat app android menggunakan API TMDb
 * [A View Divided][view_divided_link]
 * [Displaying Images with the Picasso Library][picasso_ref_url]
 * [Creating and Using Fragments][using_fragment_url]
+* [Set a click listener to a RecyclerView][item_selected_listener_url]
 
 [tmdb_url]: https://developers.themoviedb.org
 [adgl_url]: https://github.com/ribot/android-guidelines
@@ -48,3 +49,4 @@ Latihan membuat app android menggunakan API TMDb
 [view_divided_link]: https://www.bignerdranch.com/blog/a-view-divided-adding-dividers-to-your-recyclerview-with-itemdecoration/
 [picasso_ref_url]: https://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library
 [using_fragment_url]: https://guides.codepath.com/android/Creating-and-Using-Fragments
+[item_selected_listener_url]: https://antonioleiva.com/recyclerview-listener/
