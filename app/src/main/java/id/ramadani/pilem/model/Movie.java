@@ -10,6 +10,7 @@ import java.util.Locale;
  */
 
 public class Movie {
+    private Integer id;
     private String title;
     private String overview;
     private Double voteAverage;
@@ -21,6 +22,10 @@ public class Movie {
         this.overview = overview;
         this.voteAverage = voteAverage;
         this.posterPath = posterPath;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getTitle() {

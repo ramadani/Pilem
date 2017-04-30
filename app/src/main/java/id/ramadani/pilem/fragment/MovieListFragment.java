@@ -54,6 +54,7 @@ public class MovieListFragment extends Fragment implements MovieView {
         mMoviesAdapter = new MoviesAdapter(mMovieList, new MoviesAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Movie movie) {
+                Log.d(TAG, "Movie ID: " + movie.getId());
                 Toast.makeText(getContext(), movie.getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
