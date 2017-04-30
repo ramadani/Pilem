@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Pilem</string>
     <string name="author_mail">email.ramadani@gmail.com</string>
+    <string name="github_url">https://github.com/ramadani/pilem</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -24,6 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary"
-        android:text="@string/author_mail" />
+        android:text="@string/github_url" />
 
 </LinearLayout>
