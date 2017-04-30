@@ -9,7 +9,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:contentDescription="@string/app_name"/>
+        android:contentDescription="@string/app_name" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -30,19 +30,31 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:textColor="@color/colorPrimary"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_movie_vote_avg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:drawableEnd="@drawable/ic_star_black_16dp"
+                android:drawablePadding="2dp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_movie_release_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20/05/2017"
+            android:textSize="@dimen/text_small_size"
+            android:drawableStart="@drawable/ic_date_range_black_12dp"
+            android:drawablePadding="2dp"/>
 
         <TextView
             android:id="@+id/tv_movie_overview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_marginTop="3dp"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>

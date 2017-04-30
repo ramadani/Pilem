@@ -15,6 +15,7 @@ public class MovieViewHolder extends ViewHolder {
     public TextView title;
     public TextView overview;
     public TextView voteAvg;
+    public TextView releaseDate;
     public ImageView poster;
 
     public MovieViewHolder(View itemView) {
@@ -23,6 +24,7 @@ public class MovieViewHolder extends ViewHolder {
         title = (TextView) itemView.findViewById(R.id.tv_movie_title);
         overview = (TextView) itemView.findViewById(R.id.tv_movie_overview);
         voteAvg = (TextView) itemView.findViewById(R.id.tv_movie_vote_avg);
+        releaseDate = (TextView) itemView.findViewById(R.id.tv_movie_release_date);
         poster = (ImageView) itemView.findViewById(R.id.iv_movie_poster);
     }
 }

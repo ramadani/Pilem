@@ -2,12 +2,14 @@ package id.ramadani.pilem.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
 import java.util.List;
 
 import id.ramadani.pilem.R;
@@ -44,6 +46,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MovieViewHolder> {
         viewHolder.title.setText(movie.getTitle());
         viewHolder.overview.setText(movie.getOverview());
         viewHolder.voteAvg.setText(String.valueOf(movie.getVoteAverage()));
+
+        try {
+            viewHolder.releaseDate.setText(movie.getReleaseDate());
+        } catch (ParseException e) {
+            viewHolder.releaseDate.setVisibility(View.GONE);
+            Log.e("RELEASE_DATE", "Error Release Date", e);
+        }
+
         viewHolder.poster.setContentDescription(movie.getTitle());
 
         Picasso.with(getContext()).load(movie.getPosterUrl()).into(viewHolder.poster);
