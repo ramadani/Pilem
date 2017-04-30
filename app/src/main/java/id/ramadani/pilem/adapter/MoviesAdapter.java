@@ -17,12 +17,11 @@ import id.ramadani.pilem.adapter.viewholder.MovieViewHolder;
  */
 
 public class MoviesAdapter extends RecyclerView.Adapter<MovieViewHolder> {
-    private final List<Movie> mMovies;
-    private final OnItemClickListener mListener;
+    private List<Movie> mMovies;
+    private OnItemClickListener mListener;
 
-    public MoviesAdapter(List<Movie> movies, OnItemClickListener listener) {
+    public MoviesAdapter(List<Movie> movies) {
         mMovies = movies;
-        mListener = listener;
     }
 
     @Override
@@ -43,6 +42,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MovieViewHolder> {
     @Override
     public int getItemCount() {
         return this.mMovies.size();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
     }
 
     public interface OnItemClickListener {

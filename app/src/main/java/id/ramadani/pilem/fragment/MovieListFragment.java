@@ -1,16 +1,15 @@
 package id.ramadani.pilem.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +35,7 @@ public class MovieListFragment extends Fragment implements MovieView {
     private List<Movie> mMovieList;
     private MoviePresenterContract mMoviePresenter;
     private EndlessRecyclerViewScrollListener mScrollListener;
+    private OnItemSelectedListener mItemSelectedListener;
 
     public static MovieListFragment newInstance(MoviePresenterContract moviePresenterContract) {
         MovieListFragment fragment = new MovieListFragment();
@@ -47,18 +47,23 @@ public class MovieListFragment extends Fragment implements MovieView {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (context instanceof OnItemSelectedListener) {
+            mItemSelectedListener = (OnItemSelectedListener) context;
+        } else {
+            throw new ClassCastException(context.toString() + " must implement "
+                    + OnItemSelectedListener.class.getName());
+        }
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mMovieList = new ArrayList<>();
-        mMoviesAdapter = new MoviesAdapter(mMovieList, new MoviesAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Movie movie) {
-                Log.d(TAG, "Movie ID: " + movie.getId());
-                Toast.makeText(getContext(), movie.getTitle(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        mMoviesAdapter = new MoviesAdapter(mMovieList);
         mMoviePresenter =
                 (MoviePresenterContract) getArguments().getSerializable(MOVIE_PRESENTER_KEY);
         mMoviePresenter.setView(this);
@@ -82,6 +87,13 @@ public class MovieListFragment extends Fragment implements MovieView {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRvMovies.setLayoutManager(layoutManager);
         mRvMovies.setAdapter(mMoviesAdapter);
+
+        mMoviesAdapter.setOnItemClickListener(new MoviesAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Movie movie) {
+                mItemSelectedListener.onMovieItemSelected(movie);
+            }
+        });
 
         mScrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
             @Override
@@ -115,5 +127,9 @@ public class MovieListFragment extends Fragment implements MovieView {
     @Override
     public void hideProgress() {
         mProgressBar.setVisibility(ProgressBar.GONE);
+    }
+
+    public interface OnItemSelectedListener {
+        void onMovieItemSelected(Movie movie);
     }
 }
