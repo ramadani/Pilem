@@ -3,51 +3,5 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/iv_movie_backdrop"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:adjustViewBounds="true"
-            android:src="@mipmap/civil_war_backdrop"
-            android:scaleType="centerCrop" />
-
-        <View
-            android:id="@+id/view_backdrop_overlay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/iv_movie_backdrop"
-            android:background="@color/colorPrimary" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/fab_margin"
-            android:layout_alignBottom="@+id/iv_movie_backdrop">
-
-            <ImageView
-                android:id="@+id/iv_movie_detail_poster"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:scaleType="fitStart"
-                android:src="@mipmap/civil_war_poster" />
-
-            <TextView
-                android:id="@+id/tv_movie_detail_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_toEndOf="@id/iv_movie_detail_poster"
-                android:layout_marginStart="@dimen/fab_margin"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Captain America: Civil War"/>
-
-        </RelativeLayout>
-    </RelativeLayout>
-
+    <include layout="@layout/content_backdrop" />
 </LinearLayout>

@@ -87,7 +87,7 @@ public class MovieListFragment extends Fragment implements MovieView {
         mProgressBar = (ProgressBar) view.findViewById(R.id.progress_movies);
         mRvMovies = (RecyclerView) view.findViewById(R.id.rv_movies);
 
-        int movieItemMargin = view.getResources().getDimensionPixelSize(R.dimen.item_pading);
+        int movieItemMargin = view.getResources().getDimensionPixelSize(R.dimen.item_padding);
         mRvMovies.addItemDecoration(new MarginItemDecoration(movieItemMargin));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());

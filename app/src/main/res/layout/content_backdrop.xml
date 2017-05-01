@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_movie_backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/civil_war_backdrop" />
+
+    <View
+        android:id="@+id/view_backdrop_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/iv_movie_backdrop"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_movie_backdrop"
+        android:padding="@dimen/fab_margin">
+
+        <ImageView
+            android:id="@+id/iv_movie_detail_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            android:src="@mipmap/civil_war_poster" />
+
+        <TextView
+            android:id="@+id/tv_movie_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_toEndOf="@id/iv_movie_detail_poster"
+            android:text="Captain America: Civil War"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_movie_detail_runtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_movie_detail_title"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_toEndOf="@id/iv_movie_detail_poster"
+            android:text="2h 30min"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small_size" />
+
+        <TextView
+            android:id="@+id/tv_backdrop_dev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_movie_detail_title"
+            android:layout_toEndOf="@id/tv_movie_detail_runtime"
+            android:paddingEnd="3dp"
+            android:paddingStart="3dp"
+            android:text="|"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_small_size" />
+
+        <TextView
+            android:id="@+id/tv_movie_detail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_movie_detail_title"
+            android:layout_toEndOf="@id/tv_backdrop_dev"
+            android:text="5 May 2017"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small_size" />
+
+        <TextView
+            android:id="@+id/tv_movie_genres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/iv_movie_detail_poster"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:text="Adventure, Action, Science Fiction"
+            android:textSize="@dimen/text_small_size"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_movie_genre_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_movie_genres"
+            android:layout_toEndOf="@id/iv_movie_detail_poster"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:text="Genres"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+</RelativeLayout>
