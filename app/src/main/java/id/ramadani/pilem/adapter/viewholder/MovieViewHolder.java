@@ -40,8 +40,13 @@ public class MovieViewHolder extends ViewHolder {
 
         title.setText(movie.getTitle());
         overview.setText(movie.getOverview());
-        voteAvg.setText(String.valueOf(movie.getVoteAverage()));
         poster.setContentDescription(movie.getTitle());
+
+        if (movie.getVoteAverage() > 0) {
+            voteAvg.setText(String.valueOf(movie.getVoteAverage()));
+        } else {
+            voteAvg.setVisibility(View.GONE);
+        }
 
         try {
             releaseDate.setText(movie.getReleaseDate());
