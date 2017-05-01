@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import id.ramadani.pilem.R;
+import id.ramadani.pilem.fragment.MovieDetailFragment;
 import id.ramadani.pilem.fragment.MovieListFragment;
 import id.ramadani.pilem.model.Movie;
 import id.ramadani.pilem.presenter.NowPlayingMoviePresenter;
@@ -102,36 +103,27 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onMovieItemSelected(Movie movie) {
         Toast.makeText(this, movie.getTitle(), Toast.LENGTH_SHORT).show();
+
+        setMovieFragment(new MovieDetailFragment());
     }
 
     private void onMovieNavigationItemSelected(int menuId) {
-        Fragment fragment;
-
-        switch (menuId) {
-            case R.id.nav_now_playing:
-                fragment = MovieListFragment.newInstance(new NowPlayingMoviePresenter(),
-                        R.string.nav_now_playing);
-                setMovieFragment(fragment);
-
-                break;
-            case R.id.nav_upcoming:
-                fragment = MovieListFragment.newInstance(new UpcomingMoviePresenter(),
-                        R.string.nav_upcoming);
-                setMovieFragment(fragment);
-
-                break;
-            case R.id.nav_top_rated:
-                fragment = MovieListFragment.newInstance(new TopRatedMoviePresenter(),
-                        R.string.nav_top_rated);
-                setMovieFragment(fragment);
-
-                break;
-            case R.id.nav_popular:
-                fragment = MovieListFragment.newInstance(new PopularMoviePresenter(),
-                        R.string.nav_popular);
-                setMovieFragment(fragment);
-
-                break;
+        if (menuId == R.id.nav_now_playing) {
+            Fragment nowPlayingFragment = MovieListFragment.newInstance(
+                    new NowPlayingMoviePresenter(), R.string.nav_now_playing);
+            setMovieFragment(nowPlayingFragment);
+        } else if (menuId == R.id.nav_upcoming) {
+            Fragment upcomingFragment = MovieListFragment.newInstance(new UpcomingMoviePresenter(),
+                    R.string.nav_upcoming);
+            setMovieFragment(upcomingFragment);
+        } else if (menuId == R.id.nav_top_rated) {
+            Fragment topRatedFragment = MovieListFragment.newInstance(new TopRatedMoviePresenter(),
+                    R.string.nav_top_rated);
+            setMovieFragment(topRatedFragment);
+        } else if (menuId == R.id.nav_popular) {
+            Fragment popularFragment = MovieListFragment.newInstance(new PopularMoviePresenter(),
+                    R.string.nav_popular);
+            setMovieFragment(popularFragment);
         }
     }
 
