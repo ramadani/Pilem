@@ -1,13 +1,18 @@
 package id.ramadani.pilem.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import id.ramadani.pilem.R;
+import id.ramadani.pilem.util.GrayscaleTransformation;
 
 /**
  * Created by dani on 5/1/17.
@@ -35,6 +40,23 @@ public class MovieDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_movie, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Context context = view.getContext();
+
+        ImageView imgBackdrop = (ImageView) view.findViewById(R.id.iv_movie_backdrop);
+        View viewOverlay = view.findViewById(R.id.view_backdrop_overlay);
+
+        Picasso.with(context)
+                .load(R.mipmap.civil_war_backdrop)
+                .transform(new GrayscaleTransformation(Picasso.with(context)))
+                .into(imgBackdrop);
+
+        imgBackdrop.setContentDescription(mTitle);
+        viewOverlay.setAlpha((float) 0.9);
     }
 
     @Override
