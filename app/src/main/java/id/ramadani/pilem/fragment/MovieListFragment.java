@@ -97,7 +97,7 @@ public class MovieListFragment extends Fragment implements MovieView {
         mMoviesAdapter.setOnItemClickListener(new MoviesAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Movie movie) {
-                mItemSelectedListener.onMovieItemSelected(movie);
+                mItemSelectedListener.onMovieSelected(movie);
             }
         });
 
@@ -142,6 +142,6 @@ public class MovieListFragment extends Fragment implements MovieView {
     }
 
     public interface OnItemSelectedListener {
-        void onMovieItemSelected(Movie movie);
+        void onMovieSelected(Movie movie);
     }
 }

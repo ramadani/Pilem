@@ -29,14 +29,15 @@ public class MainActivity extends AppCompatActivity implements
         MovieListFragment.OnItemSelectedListener {
 
     public static final String MOVIES_FRAGMENT_TAG = "MOVIES_FRAGMENT_TAG";
+    public static final String MOVIE_FRAGMENT_TAG = "MOVIE_FRAGMENT_TAG";
 
     private boolean mHasFragment = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements
 
         Fragment nowPlayingFragment = MovieListFragment.newInstance(new NowPlayingMoviePresenter(),
                 R.string.nav_now_playing);
-        setMovieFragment(nowPlayingFragment);
+        setMovieFragment(nowPlayingFragment, MOVIES_FRAGMENT_TAG);
     }
 
     @Override
@@ -101,37 +102,37 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onMovieItemSelected(Movie movie) {
+    public void onMovieSelected(Movie movie) {
         Toast.makeText(this, movie.getTitle(), Toast.LENGTH_SHORT).show();
 
         Fragment movieDetailFragment = MovieDetailFragment.newInstance(movie.getId(),
                 movie.getTitle());
-        setMovieFragment(movieDetailFragment);
+        setMovieFragment(movieDetailFragment, MOVIE_FRAGMENT_TAG);
     }
 
     private void onMovieNavigationItemSelected(int menuId) {
         if (menuId == R.id.nav_now_playing) {
             Fragment nowPlayingFragment = MovieListFragment.newInstance(
                     new NowPlayingMoviePresenter(), R.string.nav_now_playing);
-            setMovieFragment(nowPlayingFragment);
+            setMovieFragment(nowPlayingFragment, MOVIES_FRAGMENT_TAG);
         } else if (menuId == R.id.nav_upcoming) {
             Fragment upcomingFragment = MovieListFragment.newInstance(new UpcomingMoviePresenter(),
                     R.string.nav_upcoming);
-            setMovieFragment(upcomingFragment);
+            setMovieFragment(upcomingFragment, MOVIES_FRAGMENT_TAG);
         } else if (menuId == R.id.nav_top_rated) {
             Fragment topRatedFragment = MovieListFragment.newInstance(new TopRatedMoviePresenter(),
                     R.string.nav_top_rated);
-            setMovieFragment(topRatedFragment);
+            setMovieFragment(topRatedFragment, MOVIES_FRAGMENT_TAG);
         } else if (menuId == R.id.nav_popular) {
             Fragment popularFragment = MovieListFragment.newInstance(new PopularMoviePresenter(),
                     R.string.nav_popular);
-            setMovieFragment(popularFragment);
+            setMovieFragment(popularFragment, MOVIES_FRAGMENT_TAG);
         }
     }
 
-    private void setMovieFragment(Fragment fragment) {
+    private void setMovieFragment(Fragment fragment, String TAG) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame_movies, fragment, MOVIES_FRAGMENT_TAG);
+        fragmentTransaction.replace(R.id.frame_movies, fragment, TAG);
 
         if (mHasFragment) {
             fragmentTransaction.addToBackStack(MOVIES_FRAGMENT_TAG);
