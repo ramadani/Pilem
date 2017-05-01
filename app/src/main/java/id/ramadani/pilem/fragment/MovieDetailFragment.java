@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -49,6 +50,7 @@ public class MovieDetailFragment extends Fragment {
 
         ImageView imgBackdrop = (ImageView) view.findViewById(R.id.iv_movie_backdrop);
         View viewOverlay = view.findViewById(R.id.view_backdrop_overlay);
+        TextView tvTitle = (TextView) view.findViewById(R.id.tv_movie_detail_title);
 
         Picasso.with(context)
                 .load(R.mipmap.civil_war_backdrop)
@@ -56,7 +58,7 @@ public class MovieDetailFragment extends Fragment {
                 .into(imgBackdrop);
 
         imgBackdrop.setContentDescription(mTitle);
-        viewOverlay.setAlpha((float) 0.9);
+        viewOverlay.setAlpha((float) 0.8);
     }
 
     @Override
