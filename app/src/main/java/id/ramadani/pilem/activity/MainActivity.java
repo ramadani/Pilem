@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements
 
     public static final String MOVIES_FRAGMENT_TAG = "MOVIES_FRAGMENT_TAG";
 
+    private boolean mHasFragment = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,8 @@ public class MainActivity extends AppCompatActivity implements
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Fragment nowPlayingFragment = MovieListFragment.newInstance(new NowPlayingMoviePresenter());
+        Fragment nowPlayingFragment = MovieListFragment.newInstance(new NowPlayingMoviePresenter(),
+                R.string.nav_now_playing);
         setMovieFragment(nowPlayingFragment);
     }
 
@@ -106,26 +109,26 @@ public class MainActivity extends AppCompatActivity implements
 
         switch (menuId) {
             case R.id.nav_now_playing:
-                setTitle(R.string.nav_now_playing);
-                fragment = MovieListFragment.newInstance(new NowPlayingMoviePresenter());
+                fragment = MovieListFragment.newInstance(new NowPlayingMoviePresenter(),
+                        R.string.nav_now_playing);
                 setMovieFragment(fragment);
 
                 break;
             case R.id.nav_upcoming:
-                setTitle(R.string.nav_upcoming);
-                fragment = MovieListFragment.newInstance(new UpcomingMoviePresenter());
+                fragment = MovieListFragment.newInstance(new UpcomingMoviePresenter(),
+                        R.string.nav_upcoming);
                 setMovieFragment(fragment);
 
                 break;
             case R.id.nav_top_rated:
-                setTitle(R.string.nav_top_rated);
-                fragment = MovieListFragment.newInstance(new TopRatedMoviePresenter());
+                fragment = MovieListFragment.newInstance(new TopRatedMoviePresenter(),
+                        R.string.nav_top_rated);
                 setMovieFragment(fragment);
 
                 break;
             case R.id.nav_popular:
-                setTitle(R.string.nav_popular);
-                fragment = MovieListFragment.newInstance(new PopularMoviePresenter());
+                fragment = MovieListFragment.newInstance(new PopularMoviePresenter(),
+                        R.string.nav_popular);
                 setMovieFragment(fragment);
 
                 break;
@@ -135,6 +138,13 @@ public class MainActivity extends AppCompatActivity implements
     private void setMovieFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame_movies, fragment, MOVIES_FRAGMENT_TAG);
+
+        if (mHasFragment) {
+            fragmentTransaction.addToBackStack(MOVIES_FRAGMENT_TAG);
+        } else {
+            mHasFragment = true;
+        }
+
         fragmentTransaction.commit();
     }
 }

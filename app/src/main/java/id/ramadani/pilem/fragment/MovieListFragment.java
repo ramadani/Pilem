@@ -29,6 +29,8 @@ import id.ramadani.pilem.view.MovieView;
 public class MovieListFragment extends Fragment implements MovieView {
     private static final String TAG = MovieListFragment.class.getSimpleName();
     private static final String MOVIE_PRESENTER_KEY = "MOVIE_PRESENTER_KEY";
+    private static final String MOVIE_TITLE_KEY = "MOVIE_TITLE_KEY";
+    private int mTitleId;
     private ProgressBar mProgressBar;
     private RecyclerView mRvMovies;
     private MoviesAdapter mMoviesAdapter;
@@ -37,10 +39,13 @@ public class MovieListFragment extends Fragment implements MovieView {
     private EndlessRecyclerViewScrollListener mScrollListener;
     private OnItemSelectedListener mItemSelectedListener;
 
-    public static MovieListFragment newInstance(MoviePresenterContract moviePresenterContract) {
-        MovieListFragment fragment = new MovieListFragment();
+    public static MovieListFragment newInstance(MoviePresenterContract moviePresenterContract,
+                                                int titleId) {
         Bundle args = new Bundle();
         args.putSerializable(MOVIE_PRESENTER_KEY, moviePresenterContract);
+        args.putInt(MOVIE_TITLE_KEY, titleId);
+
+        MovieListFragment fragment = new MovieListFragment();
         fragment.setArguments(args);
 
         return fragment;
@@ -67,6 +72,7 @@ public class MovieListFragment extends Fragment implements MovieView {
         mMoviePresenter =
                 (MoviePresenterContract) getArguments().getSerializable(MOVIE_PRESENTER_KEY);
         mMoviePresenter.setView(this);
+        mTitleId = getArguments().getInt(MOVIE_TITLE_KEY, R.string.app_name);
     }
 
     @Nullable
@@ -111,6 +117,12 @@ public class MovieListFragment extends Fragment implements MovieView {
 
         mScrollListener.setCurrentPage(1);
         mMoviePresenter.load(1);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle(mTitleId);
     }
 
     @Override
