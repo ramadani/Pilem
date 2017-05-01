@@ -104,7 +104,9 @@ public class MainActivity extends AppCompatActivity implements
     public void onMovieItemSelected(Movie movie) {
         Toast.makeText(this, movie.getTitle(), Toast.LENGTH_SHORT).show();
 
-        setMovieFragment(new MovieDetailFragment());
+        Fragment movieDetailFragment = MovieDetailFragment.newInstance(movie.getId(),
+                movie.getTitle());
+        setMovieFragment(movieDetailFragment);
     }
 
     private void onMovieNavigationItemSelected(int menuId) {
