@@ -1,23 +1,24 @@
 # Pilem
 
 Latihan membuat app android menggunakan API TMDb
-* Now Playing
-* Upcoming Movies
-* Popular Movies
-* Top Rated Movies
 
 > Done is better than perfect
 
 <img src="image.png" width="320">
 
-### Roadmap
+### ToDo
 * [x] Explore & test REST API TMDb
 * [x] Buat app base design (warna dan atribut lainnya dari TMDb)
-* [x] Implement Model View Presenter (MVP)
+* [ ] Movie List
+* [ ] Detail Movie
+* [ ] Movie Home
+
+### Implementation
+* [x] Model View Presenter (MVP)
 * [x] Lazy load image
 * [x] Endless Scrolling
 * [x] Fragment List
-* [ ] Detail Movie
+* [ ] Image Slider
 * [ ] Swipe Refresh
 
 ### Dependencies
