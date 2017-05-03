@@ -41,6 +41,13 @@ Latihan membuat app android menggunakan API TMDb
 * [Creating and Using Fragments][using_fragment_url]
 * [Set a click listener to a RecyclerView][item_selected_listener_url]
 
+> Failure is simply the opportunity to begin again, this time more intelligently.
+
+-- Henry Ford
+
+## License
+The [MIT][mitlink] License (MIT). Please see [License File](LICENSE.md) for more information.
+
 [tmdb_url]: https://developers.themoviedb.org
 [adgl_url]: https://github.com/ribot/android-guidelines
 [archi_ar_url]: https://guides.codepath.com/android/Architecture-of-Android-Apps
@@ -54,7 +61,4 @@ Latihan membuat app android menggunakan API TMDb
 [picasso_ref_url]: https://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library
 [using_fragment_url]: https://guides.codepath.com/android/Creating-and-Using-Fragments
 [item_selected_listener_url]: https://antonioleiva.com/recyclerview-listener/
-
-> Failure is simply the opportunity to begin again, this time more intelligently.
-
--- Henry Ford
+[mitlink]: http://opensource.org/licenses/MIT
