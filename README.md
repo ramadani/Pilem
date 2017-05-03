@@ -9,9 +9,10 @@ Latihan membuat app android menggunakan API TMDb
 ### ToDo
 * [x] Explore & test REST API TMDb
 * [x] Buat app base design (warna dan atribut lainnya dari TMDb)
-* [ ] Movie List
+* [x] Movie List
 * [ ] Detail Movie
 * [ ] Movie Home
+* [ ] Settings
 
 ### Implementation
 * [x] Model View Presenter (MVP)
@@ -20,6 +21,8 @@ Latihan membuat app android menggunakan API TMDb
 * [x] Fragment List
 * [ ] Image Slider
 * [ ] Swipe Refresh
+* [ ] Constraint Layout
+* [ ] Data Persistence
 
 ### Dependencies
 * [Retrofit][retrofit_repo_url]
@@ -51,3 +54,7 @@ Latihan membuat app android menggunakan API TMDb
 [picasso_ref_url]: https://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library
 [using_fragment_url]: https://guides.codepath.com/android/Creating-and-Using-Fragments
 [item_selected_listener_url]: https://antonioleiva.com/recyclerview-listener/
+
+> Failure is simply the opportunity to begin again, this time more intelligently.
+
+-- Henry Ford
