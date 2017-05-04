@@ -8,13 +8,11 @@
         android:id="@+id/tv_movie_detail_info_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MovieDetailAttributeText"
-        android:text="@string/overview" />
+        style="@style/MovieDetailAttributeText" />
 
     <TextView
         android:id="@+id/tv_movie_detail_info_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_movie_detail_info_label"
-        android:text="@string/lorem_ipsum"/>
+        android:layout_below="@id/tv_movie_detail_info_label" />
 </RelativeLayout>

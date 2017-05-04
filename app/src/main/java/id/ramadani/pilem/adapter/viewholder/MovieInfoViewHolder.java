@@ -24,6 +24,14 @@ public class MovieInfoViewHolder extends ViewHolder {
         value = (TextView) itemView.findViewById(R.id.tv_movie_detail_info_value);
     }
 
+    public TextView getLabel() {
+        return label;
+    }
+
+    public TextView getValue() {
+        return value;
+    }
+
     public void bind(ItemInfo info) {
         label.setText(info.getLabel());
         value.setText(info.getValue());

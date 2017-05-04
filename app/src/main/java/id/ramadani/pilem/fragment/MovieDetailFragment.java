@@ -62,6 +62,7 @@ public class MovieDetailFragment extends Fragment {
 
         setUpBackdrop(view);
         setUpInfo(view);
+        setUpCompanies(view);
     }
 
     @Override
@@ -95,10 +96,9 @@ public class MovieDetailFragment extends Fragment {
 
     private void setUpInfo(View view) {
         RecyclerView rvInfo = (RecyclerView) view.findViewById(R.id.rv_movie_detail_info);
-
         ArrayList<ItemInfo> infoItems = new ArrayList<>();
-
         String overviewValStr = view.getResources().getString(R.string.lorem_ipsum_long);
+
         infoItems.add(new ItemInfo("Overview", overviewValStr));
         infoItems.add(new ItemInfo("Tagline", "Divided We Fall"));
         infoItems.add(new ItemInfo("Status", "Releases"));
@@ -117,5 +117,31 @@ public class MovieDetailFragment extends Fragment {
         rvInfo.setLayoutManager(new LinearLayoutManager(view.getContext()));
         rvInfo.setAdapter(infoAdapter);
         rvInfo.addItemDecoration(new MovieInfoViewHolder.ItemDecoration());
+    }
+
+    private void setUpCompanies(View view) {
+        RecyclerView rvCompany = (RecyclerView) view.findViewById(R.id.rv_movie_detail_company);
+        ArrayList<ItemInfo> companies = new ArrayList<>();
+
+        companies.add(new ItemInfo("Company", "Studio Babelsberg"));
+        companies.add(new ItemInfo("Company", "Marvel Studios"));
+        companies.add(new ItemInfo("Company", "Walt Disney Studios Motion Pictures"));
+        companies.add(new ItemInfo("Company", "Studio Babelsberg"));
+        companies.add(new ItemInfo("Company", "Marvel Studios"));
+        companies.add(new ItemInfo("Company", "Walt Disney Studios Motion Pictures"));
+
+        RecyclerAdapter companiesAdapter = new RecyclerAdapter<ItemInfo, MovieInfoViewHolder>(
+                R.layout.item_movie_info, ItemInfo.class, companies, MovieInfoViewHolder.class) {
+
+            @Override
+            protected void bindView(MovieInfoViewHolder holder, ItemInfo model, int position) {
+                holder.getLabel().setVisibility(View.GONE);
+                holder.getValue().setText(model.getValue());
+            }
+        };
+
+        rvCompany.setAdapter(companiesAdapter);
+        rvCompany.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        rvCompany.addItemDecoration(new MovieInfoViewHolder.ItemDecoration());
     }
 }

@@ -25,5 +25,26 @@
             android:background="@color/white"
             android:layout_marginTop="@dimen/item_padding" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/item_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/MovieDetailAttributeText"
+                android:layout_marginBottom="@dimen/item_padding"
+                android:text="@string/production_companies"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_movie_detail_company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
