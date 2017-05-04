@@ -3,6 +3,7 @@ package id.ramadani.pilem.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +48,11 @@ public class MovieDetailFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Context context = view.getContext();
+
+        TabLayout tabs = (TabLayout) view.findViewById(R.id.tab_movie_detail);
+        tabs.addTab(tabs.newTab().setText("Info"));
+        tabs.addTab(tabs.newTab().setText("Cast"));
+        tabs.addTab(tabs.newTab().setText("Crew"));
 
         ImageView imgBackdrop = (ImageView) view.findViewById(R.id.iv_movie_backdrop);
         View viewOverlay = view.findViewById(R.id.view_backdrop_overlay);
