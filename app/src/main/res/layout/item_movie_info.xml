@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_movie_detail_info_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MovieDetailAttributeText"
+        android:text="@string/overview" />
+
+    <TextView
+        android:id="@+id/tv_movie_detail_info_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_movie_detail_info_label"
+        android:text="@string/lorem_ipsum"/>
+</RelativeLayout>
