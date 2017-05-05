@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,9 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import id.ramadani.pilem.R;
-import id.ramadani.pilem.adapter.RecyclerAdapter;
-import id.ramadani.pilem.adapter.viewholder.MovieInfoViewHolder;
-import id.ramadani.pilem.model.ItemInfo;
 import id.ramadani.pilem.util.GrayscaleTransformation;
 
 /**
@@ -56,13 +55,11 @@ public class MovieDetailFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         TabLayout tabs = (TabLayout) view.findViewById(R.id.tab_movie_detail);
-        tabs.addTab(tabs.newTab().setText("Info"));
-        tabs.addTab(tabs.newTab().setText("Cast"));
-        tabs.addTab(tabs.newTab().setText("Crew"));
+        ViewPager viewPager = (ViewPager) view.findViewById(R.id.vp_movie_detail);
 
         setUpBackdrop(view);
-        setUpInfo(view);
-        setUpCompanies(view);
+        setUpViewPager(viewPager);
+        tabs.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -94,54 +91,41 @@ public class MovieDetailFragment extends Fragment {
         viewOverlay.setAlpha((float) 0.8);
     }
 
-    private void setUpInfo(View view) {
-        RecyclerView rvInfo = (RecyclerView) view.findViewById(R.id.rv_movie_detail_info);
-        ArrayList<ItemInfo> infoItems = new ArrayList<>();
-        String overviewValStr = view.getResources().getString(R.string.lorem_ipsum_long);
+    private void setUpViewPager(ViewPager viewPager) {
+        PagerAdapter pagerAdapter = new PagerAdapter(getChildFragmentManager());
+        pagerAdapter.addFragment(new MovieInfoFragment(), "Info");
+        pagerAdapter.addFragment(new MovieInfoFragment(), "Cast");
+        pagerAdapter.addFragment(new MovieInfoFragment(), "Crew");
 
-        infoItems.add(new ItemInfo("Overview", overviewValStr));
-        infoItems.add(new ItemInfo("Tagline", "Divided We Fall"));
-        infoItems.add(new ItemInfo("Status", "Releases"));
-        infoItems.add(new ItemInfo("Budget", "250.000.000"));
-        infoItems.add(new ItemInfo("Revenue", "1.153.304.495"));
-        infoItems.add(new ItemInfo("Homepage", "http://marvel.com/captainamericapremiere"));
-
-        RecyclerAdapter infoAdapter = new RecyclerAdapter<ItemInfo, MovieInfoViewHolder>(
-                R.layout.item_movie_info, ItemInfo.class, infoItems, MovieInfoViewHolder.class) {
-            @Override
-            protected void bindView(MovieInfoViewHolder holder, ItemInfo model, int position) {
-                holder.getLabel().setText(model.getLabel());
-                holder.getValue().setText(model.getValue());
-            }
-        };
-
-        rvInfo.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        rvInfo.setAdapter(infoAdapter);
-        rvInfo.addItemDecoration(new MovieInfoViewHolder.ItemDecoration());
+        viewPager.setAdapter(pagerAdapter);
     }
 
-    private void setUpCompanies(View view) {
-        RecyclerView rvCompany = (RecyclerView) view.findViewById(R.id.rv_movie_detail_company);
-        ArrayList<ItemInfo> companies = new ArrayList<>();
+    private static class PagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        companies.add(new ItemInfo("Company", "Studio Babelsberg"));
-        companies.add(new ItemInfo("Company", "Marvel Studios"));
-        companies.add(new ItemInfo("Company", "Walt Disney Studios Motion Pictures"));
-        companies.add(new ItemInfo("Company", "Studio Babelsberg"));
-        companies.add(new ItemInfo("Company", "Marvel Studios"));
-        companies.add(new ItemInfo("Company", "Walt Disney Studios Motion Pictures"));
+        PagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
-        RecyclerAdapter companiesAdapter = new RecyclerAdapter<ItemInfo, MovieInfoViewHolder>(
-                R.layout.item_movie_info, ItemInfo.class, companies, MovieInfoViewHolder.class) {
-            @Override
-            protected void bindView(MovieInfoViewHolder holder, ItemInfo model, int position) {
-                holder.getLabel().setVisibility(View.GONE);
-                holder.getValue().setText(model.getValue());
-            }
-        };
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
 
-        rvCompany.setAdapter(companiesAdapter);
-        rvCompany.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        rvCompany.addItemDecoration(new MovieInfoViewHolder.ItemDecoration());
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+
+        void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
     }
 }

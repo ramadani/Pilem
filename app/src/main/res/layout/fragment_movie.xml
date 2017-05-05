@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,34 +18,11 @@
             android:layout_height="wrap_content"
             style="@style/MovieDetailTab" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_movie_detail_info"
-            android:layout_width="match_parent"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_movie_detail"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/fab_margin"
-            android:background="@color/white"
-            android:layout_marginTop="@dimen/item_padding" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white"
-            android:padding="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/item_padding">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/MovieDetailAttributeText"
-                android:layout_marginBottom="@dimen/item_padding"
-                android:text="@string/production_companies"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_movie_detail_company"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
+            android:layout_marginTop="@dimen/item_padding"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
     </LinearLayout>
 </ScrollView>
