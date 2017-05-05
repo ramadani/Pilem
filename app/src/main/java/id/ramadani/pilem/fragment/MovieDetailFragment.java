@@ -110,7 +110,8 @@ public class MovieDetailFragment extends Fragment {
                 R.layout.item_movie_info, ItemInfo.class, infoItems, MovieInfoViewHolder.class) {
             @Override
             protected void bindView(MovieInfoViewHolder holder, ItemInfo model, int position) {
-                holder.bind(model);
+                holder.getLabel().setText(model.getLabel());
+                holder.getValue().setText(model.getValue());
             }
         };
 
@@ -132,7 +133,6 @@ public class MovieDetailFragment extends Fragment {
 
         RecyclerAdapter companiesAdapter = new RecyclerAdapter<ItemInfo, MovieInfoViewHolder>(
                 R.layout.item_movie_info, ItemInfo.class, companies, MovieInfoViewHolder.class) {
-
             @Override
             protected void bindView(MovieInfoViewHolder holder, ItemInfo model, int position) {
                 holder.getLabel().setVisibility(View.GONE);

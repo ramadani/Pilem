@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import id.ramadani.pilem.R;
-import id.ramadani.pilem.model.ItemInfo;
 
 /**
  * Created by dani on 5/4/17.
@@ -30,11 +29,6 @@ public class MovieInfoViewHolder extends ViewHolder {
 
     public TextView getValue() {
         return value;
-    }
-
-    public void bind(ItemInfo info) {
-        label.setText(info.getLabel());
-        value.setText(info.getValue());
     }
 
     public static class ItemDecoration extends RecyclerView.ItemDecoration {
