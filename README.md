@@ -15,7 +15,7 @@ Latihan membuat app android menggunakan API TMDb
 * [ ] Settings
 
 ### Implementation
-* [x] Model View Presenter (MVP)
+* [ ] Model View Presenter (MVP)
 * [x] Lazy load image
 * [x] Endless Scrolling
 * [x] Fragment List
